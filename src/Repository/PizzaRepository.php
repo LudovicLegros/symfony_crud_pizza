@@ -16,6 +16,16 @@ class PizzaRepository extends ServiceEntityRepository
         parent::__construct($registry, Pizza::class);
     }
 
+    public function orderByName($order): array
+   {
+
+       return $this->createQueryBuilder('p')
+           ->orderBy('p.nom', $order)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+
 //    /**
 //     * @return Pizza[] Returns an array of Pizza objects
 //     */
@@ -34,8 +44,9 @@ class PizzaRepository extends ServiceEntityRepository
 //    public function findOneBySomeField($value): ?Pizza
 //    {
 //        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
+//             ->leftJoin('p.pate','pa')
+//            ->andWhere('pa.label = :pikachu')
+//            ->setParameter('pikachu', $value)
 //            ->getQuery()
 //            ->getOneOrNullResult()
 //        ;
