@@ -16,6 +16,11 @@ class Pate
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
+    // public function __toString(): string
+    // {
+    //     return $this->label; // Retourne le nom de la pâte
+    // }
+
     public function getId(): ?int
     {
         return $this->id;

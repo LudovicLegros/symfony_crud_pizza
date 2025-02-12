@@ -49,6 +49,7 @@ class Pizza
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Pate $pate = null;
+    
 
     public function __construct()
     {
